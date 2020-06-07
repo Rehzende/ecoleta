@@ -2,9 +2,13 @@ import knex from 'knex';
 import path from 'path';
 
 const connection = knex({
-  client: 'sqlite3',
+  client: 'mysql',
+  version: '5.7',
   connection: {
-    filename: path.resolve(__dirname, 'database.sqlite'),
+    host : 'db',
+    user : 'admin',
+    password : 'admin',
+    database : 'ecoleta'
   },
   useNullAsDefault: true,
 });

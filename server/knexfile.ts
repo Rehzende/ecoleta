@@ -1,13 +1,18 @@
 import path from 'path';
 
+
 module.exports = {
-  client: 'sqlite3',
+  client: 'mysql',
+  version: '5.7',
   connection: {
-    filename: path.resolve(__dirname, 'src', 'database', 'database.sqlite'),
+    host : 'db',
+    user : 'admin',
+    password : 'admin',
+    database : 'ecoleta'
   },
   migrations: {
-    directory: path.resolve(__dirname, 'src', 'database', 'migrations'),
-  },
+    directory: path.resolve(__dirname, 'src', 'database', 'migrations'), 
+        },
   seeds: {
     directory: path.resolve(__dirname, 'src', 'database', 'seeds'),
   },
