@@ -1,8 +1,21 @@
 version: '3'
 services:
+
+  nginx:
+    container_name: webproxy
+    build:
+      context: ./nginx
+      dockerfile: nginx.dockerfile
+    ports:
+      - 80:80
   web:
     build:
       context: ./web/
+    ports:
+      - "3000:80"
+  web_dashboard:
+    build:
+      context: ./mobile/
     ports:
       - "3000:80"
      
@@ -32,6 +45,8 @@ services:
       MYSQL_DATABASE: ecoleta
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
+      
+
       
 volumes:
   db_data:
